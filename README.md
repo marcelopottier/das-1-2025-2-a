@@ -30,9 +30,10 @@ Herança, Implementação e Associação.
 Principio que diz que as classes devem ser abertas para extensão e fechadas para modificação.
 
 ## L - Liskov Substituition
+Princípio que sugere que as classes derivadas devem conseguir substituir a classe base sem que o código quebre.
 
 ## I - Interface Segregation
-As interfaces devem ser bem segmentadas e 
+Princípio que sugere que as interfaces devem ser bem segmentadas e com responsabilidade únicas.
 
 ## D - Dependency Inversion
 Principio que diz que as classes devem depender de abstrações e não de implementações reais.
@@ -40,7 +41,6 @@ Principio que diz que as classes devem depender de abstrações e não de implem
 ##Composição e Herança
 É preferivel a utilização da composição do que a herança pois a herança é dificil de ser aplicada em bancos de dados relacionais.
 Fazendo sentido de ser aplicada apenas caso as classes derivadas nunca irão assumir o mesmo papel.
-
 
 ##Princípio de Demeter
 Princípio que defende que a implementação de um metodo deve conhecer e interagir apenas com outros metódos de escopo local. Ou seja, eles devem ser instânciados ou trazidos até ele por meio da implementação.
