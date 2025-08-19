@@ -44,3 +44,6 @@ Fazendo sentido de ser aplicada apenas caso as classes derivadas nunca irão ass
 
 ##Princípio de Demeter
 Princípio que defende que a implementação de um metodo deve conhecer e interagir apenas com outros metódos de escopo local. Ou seja, eles devem ser instânciados ou trazidos até ele por meio da implementação.
+
+
+static - é a anotação que significa que aquele pedaço de código vai ser carregado primeiro na memória
