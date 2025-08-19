@@ -1,10 +1,25 @@
+package br.univille.singleton;
+
 public class Singleton {
     private static Singleton instance;
+    private String segredo;
+    
+    public String getSegredo() {
+        return segredo;
+    }
 
-    private Singleton(){}
+    public void setSegredo(String segredo) {
+        this.segredo = segredo;
+    }
 
-    public static getInstance(){
+    private Singleton(){
+        System.out.println("Construtor");
+    }
+
+    public static Singleton getInstance(){
+        System.out.println("getInstance");
         if (instance == null) {
+            System.out.println("new Singleton");
             return instance = new Singleton();
         }
         return instance;
