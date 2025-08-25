@@ -1,7 +1,9 @@
 package br.univille.observer;
 
+import br.univille.observer.services.OfertaObserver;
+
 public interface Publisher {
-    public void addSubscriber(Subscriber idCliente);
-    public void notifySubscriber();
-    public void removeSubscriber(Subscriber idCliente);
+    public void addSubscriber(OfertaObserver observer);
+    void notifySubscriber();
+    public void removeSubscriber(OfertaObserver observer);
 }
