@@ -47,3 +47,39 @@ Princípio que defende que a implementação de um metodo deve conhecer e intera
 
 
 static - é a anotação que significa que aquele pedaço de código vai ser carregado primeiro na memória
+
+
+
+## Características Arquiteturais = Requisitos não funcionais
+Um sistema nunca vai cumprir 100% dos requisitos não funcionais
+
+## Decisões da Arquitetura
+Definição da arquitetura que será utilizada, por exemplo: Monolito, Hexagonal, etc.
+
+## Princípios do Design
+Regras que devem ser seguidas durante a construção e a manutenção do sistema.
+
+## Expectativas de um Arquiteto
+ - Tomar decisões de arquitetura
+    Deve guiar a equipe tomando deciões técnicas ou arquiteturais por ter mais experiência.
+ - Analisar continuamente a arquitetura
+    A vitalidade da arquitetura é fundamental, o arquiteto deve sempre analisar.
+
+ - Manter-se atualizado com as últimas tendências
+    
+ - Assegurar a conformidade com as decisões
+    Garantir que os Design Patterns sejam seguidos, eles foram sugeridos pelo arquiteto porque precisam ser seguidos durante a construção da aplicação para garantir algum atributo.
+
+ - Exposição e experiências diversificadas
+    
+ - Conhecimento sobre o domínio do negócio
+   Entender como funciona a regra de negócio e saber como se comunicar com o PO
+   
+ - Habilidades interpessoais
+   Deve ser capaz de fazer uma parte de gestor, conseguir se comunicar e liderar a equipe
+   
+ - Entender e lidar bem com questões políticas
+    Conseguir entender a parte política dentro das empresas e conseguir negociar e influenciar as pessoas nas decisões
+   
+## DevOps
+Maneira de entregar valor de forma mais ágil ao cliente.
