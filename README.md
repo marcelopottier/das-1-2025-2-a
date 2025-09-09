@@ -83,3 +83,21 @@ Regras que devem ser seguidas durante a construção e a manutenção do sistema
    
 ## DevOps
 Maneira de entregar valor de forma mais ágil ao cliente.
+
+
+
+## Trade Offs
+
+
+##Utilizam transmissão de mensagens por Brokers, por exemplo: HiveMQ, RabbitMQ, SNS.
+Esses brokers podem utilizar alguns protocolos de comunicação como: MQTT, AMQP ou ate mesmo Web Socket.
+
+
+##Filas Queues
+Temos os senders e os receivers que irão enviar e receber mensagens da fila. A fila diferentemente dos brokers salva a mensagem caso o receiver não esteja disponível, servindo como um buffer.
+
+
+## O beneficio da extensabilidade arquitetural
+No estilo de tópicos existe um desacoplamento que ajuda a arquitetura de certa forma. Já na estrutura de filas precisariamos criar uma nova fila e conectar ao servidor.
+A resposta sempre será o item que voce precisa priorizar, 1 tópico pode ter o mesmo valor que 2 ou 3 filas. O ponto é que dependendo da sua regra de negócio um dos tipos de arquitetura pode funcionar melhor, garantindo o requisito não funcional que voce precisa priorizar.
+
