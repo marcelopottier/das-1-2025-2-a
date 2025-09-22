@@ -1,103 +1,168 @@
 # das-1-2025-2-a
 
-
 ## Abstração
-Representação de algo do mundo material, sejam de problemas reais, pessoas, etc. A abstração 
+Representação de algo do mundo material, sejam de problemas reais, pessoas, etc.  
+A abstração consiste em destacar apenas os aspectos essenciais de um objeto, ignorando os detalhes desnecessários.  
+Permite focar **no que um objeto faz** e não em **como ele faz**.
 
+---
 
-## Ocultamento de informação
+## Ocultamento de informação (Encapsulamento)
+Consiste em esconder os detalhes internos de implementação.  
+Protege o estado interno do objeto, permitindo o acesso e modificação apenas por métodos controlados (getters e setters).  
+Evita que atributos internos sejam expostos diretamente, reduzindo interferência no funcionamento interno da classe.
+
+---
 
 ## Coesão 
-Código que faz uma coisa bem feita, seguindo o princípio de responsabilidade única.
+Código que faz uma coisa bem feita, seguindo o princípio de responsabilidade única.  
+Todos os métodos e atributos de uma classe devem estar voltados para o mesmo objetivo/serviço.
 
+---
 
-# Acoplamento
-Alto Acomplamento - Quando eu mexo em um lugar do código quebra outro lugar.
+## Acoplamento
+- **Alto Acoplamento**: Quando mexer em um lugar do código quebra outro lugar.  
+- **Acoplamento aceitável**: Uma classe usa apenas métodos públicos estáveis de outra classe.  
+- **Acoplamento ruim**: Uso de variáveis globais, acesso direto a arquivos/bancos de dados de outra classe.
 
+---
 
-UML
+## UML
 Herança, Implementação e Associação.
 
+---
 
 # SOLID
 
-## SOLID é um conjunto de princípios que visam deixar o código limpo e organizado (coeso e desaclopado). Cada letra representa um dos princípios.
+## SOLID é um conjunto de princípios que visam deixar o código limpo e organizado (coeso e desacoplado).  
+Cada letra representa um dos princípios.
 
-## S - Single Responsability Principle
-É o principio da responsabilidade única, tem a mesma ideia da coesão citada anteriormente, cada componente de software deve ter um, e apenas um, único motivo para ser modificado.
+### S - Single Responsibility Principle
+Princípio da responsabilidade única.  
+Cada classe deve ter apenas um motivo para mudar.
 
-## O - Open-Closed
-Principio que diz que as classes devem ser abertas para extensão e fechadas para modificação.
+### O - Open-Closed Principle
+Classes devem ser **abertas para extensão** e **fechadas para modificação**.  
+Protege a classe de bugs ao mesmo tempo em que permite novas funcionalidades.
 
-## L - Liskov Substituition
-Princípio que sugere que as classes derivadas devem conseguir substituir a classe base sem que o código quebre.
+### L - Liskov Substitution Principle
+Classes derivadas devem conseguir substituir a classe base sem quebrar o código.  
 
-## I - Interface Segregation
-Princípio que sugere que as interfaces devem ser bem segmentadas e com responsabilidade únicas.
+### I - Interface Segregation Principle
+Interfaces devem ser pequenas, específicas e coesas.  
+Evita obrigar classes a implementar métodos que não utilizam.
 
-## D - Dependency Inversion
-Principio que diz que as classes devem depender de abstrações e não de implementações reais.
+### D - Dependency Inversion Principle
+Depender de abstrações e não de implementações concretas.  
+Exemplo: um Controller deve depender de uma interface de Service, não de uma classe concreta.
 
-##Composição e Herança
-É preferivel a utilização da composição do que a herança pois a herança é dificil de ser aplicada em bancos de dados relacionais.
-Fazendo sentido de ser aplicada apenas caso as classes derivadas nunca irão assumir o mesmo papel.
+---
 
-##Princípio de Demeter
-Princípio que defende que a implementação de um metodo deve conhecer e interagir apenas com outros metódos de escopo local. Ou seja, eles devem ser instânciados ou trazidos até ele por meio da implementação.
+## Composição e Herança
+É preferível usar **composição** em vez de herança.  
+A herança deve ser usada apenas quando as subclasses não podem exercer o mesmo papel (ex.: Gato e Cachorro herdam de Animal, mas um não pode ser o outro).
 
+---
 
-static - é a anotação que significa que aquele pedaço de código vai ser carregado primeiro na memória
+## Princípio de Demeter
+Também chamado de **Princípio do Menor Conhecimento**.  
+Um método deve invocar apenas:
+1. Métodos da própria classe.  
+2. Métodos de objetos passados como parâmetros.  
+3. Métodos de objetos criados pelo próprio método.  
+4. Métodos de atributos da classe.  
 
+---
 
+## static 
+Significa que o código ou membro é carregado primeiro na memória, pertencendo à classe e não a instâncias específicas.
+
+---
+
+# Arquitetura
 
 ## Características Arquiteturais = Requisitos não funcionais
-Um sistema nunca vai cumprir 100% dos requisitos não funcionais
+Critérios que definem o sucesso de um sistema, mas que não estão ligados diretamente às funcionalidades.  
+Exemplos: desempenho, escalabilidade, segurança.  
+Um sistema nunca cumpre 100% dos requisitos não funcionais.
+
+---
 
 ## Decisões da Arquitetura
-Definição da arquitetura que será utilizada, por exemplo: Monolito, Hexagonal, etc.
+Regras de como o sistema deve ser construído.  
+Exemplo: definir se o sistema será monólito, hexagonal, microsserviços etc.  
+Também incluem limites, como “camada de apresentação não acessa banco diretamente”.
+
+---
 
 ## Princípios do Design
-Regras que devem ser seguidas durante a construção e a manutenção do sistema.
+Diretrizes que orientam a construção do sistema, mas não são regras fixas.  
+Exemplo: usar comunicação assíncrona em microsserviços para melhorar escalabilidade.
+
+---
 
 ## Expectativas de um Arquiteto
- - Tomar decisões de arquitetura
-    Deve guiar a equipe tomando deciões técnicas ou arquiteturais por ter mais experiência.
- - Analisar continuamente a arquitetura
-    A vitalidade da arquitetura é fundamental, o arquiteto deve sempre analisar.
+- **Tomar decisões de arquitetura**: guiar a equipe em decisões técnicas/arquiteturais.  
+- **Analisar continuamente a arquitetura**: avaliar melhorias e saúde do sistema.  
+- **Manter-se atualizado com as tendências**: acompanhar novas tecnologias.  
+- **Assegurar conformidade**: garantir que os princípios e padrões definidos sejam seguidos.  
+- **Exposição e experiências diversificadas**: ter vivência em várias tecnologias e ambientes.  
+- **Conhecimento sobre o domínio do negócio**: entender a regra de negócio e dialogar com o PO.  
+- **Habilidades interpessoais**: liderar, motivar e comunicar-se com a equipe.  
+- **Lidar com questões políticas**: entender hierarquia, negociar prazos e influenciar decisões.
 
- - Manter-se atualizado com as últimas tendências
-    
- - Assegurar a conformidade com as decisões
-    Garantir que os Design Patterns sejam seguidos, eles foram sugeridos pelo arquiteto porque precisam ser seguidos durante a construção da aplicação para garantir algum atributo.
+---
 
- - Exposição e experiências diversificadas
-    
- - Conhecimento sobre o domínio do negócio
-   Entender como funciona a regra de negócio e saber como se comunicar com o PO
-   
- - Habilidades interpessoais
-   Deve ser capaz de fazer uma parte de gestor, conseguir se comunicar e liderar a equipe
-   
- - Entender e lidar bem com questões políticas
-    Conseguir entender a parte política dentro das empresas e conseguir negociar e influenciar as pessoas nas decisões
-   
 ## DevOps
-Maneira de entregar valor de forma mais ágil ao cliente.
+Prática de entregar valor ao cliente de forma ágil.  
+Processo cíclico com etapas de:
+- Planejamento  
+- Criação  
+- Integração Contínua  
+- Implantação  
+- Monitoramento  
+- Feedback  
 
+---
 
+## Trade-offs
+Não é possível atender todos os requisitos ao mesmo tempo.  
+É preciso equilibrar atributos como desempenho, escalabilidade, segurança e manutenibilidade.  
 
-## Trade Offs
+---
 
+## Estilos de Comunicação
 
-##Utilizam transmissão de mensagens por Brokers, por exemplo: HiveMQ, RabbitMQ, SNS.
-Esses brokers podem utilizar alguns protocolos de comunicação como: MQTT, AMQP ou ate mesmo Web Socket.
+### Padrão de Tópicos (Publish/Subscribe)
+- Publisher envia mensagens para um canal (broker/stream).  
+- Canal distribui para múltiplos subscribers.  
+- Comunicação assíncrona, desacoplada e escalável.  
+- Protocolos: MQTT, AMQP, WebSocket.  
+- Exemplos: HiveMQ, RabbitMQ, SNS.  
 
+### Queue (Filas)
+- Sender envia mensagem para uma fila.  
+- Receiver consome a mensagem da fila.  
+- Comunicação assíncrona ponto-a-ponto (1:1).  
+- A fila guarda a mensagem caso não haja receiver disponível (buffer).  
 
-##Filas Queues
-Temos os senders e os receivers que irão enviar e receber mensagens da fila. A fila diferentemente dos brokers salva a mensagem caso o receiver não esteja disponível, servindo como um buffer.
+---
 
+## Benefício da Extensibilidade Arquitetural
+- Em tópicos: fácil desacoplamento (um publisher pode alcançar vários subscribers).  
+- Em filas: seria necessário criar novas filas e conectá-las.  
+- A escolha depende do requisito não funcional que precisa ser priorizado (ex.: escalabilidade vs. confiabilidade).  
 
-## O beneficio da extensabilidade arquitetural
-No estilo de tópicos existe um desacoplamento que ajuda a arquitetura de certa forma. Já na estrutura de filas precisariamos criar uma nova fila e conectar ao servidor.
-A resposta sempre será o item que voce precisa priorizar, 1 tópico pode ter o mesmo valor que 2 ou 3 filas. O ponto é que dependendo da sua regra de negócio um dos tipos de arquitetura pode funcionar melhor, garantindo o requisito não funcional que voce precisa priorizar.
+---
 
+# Diferença entre Arquitetura e Design
+- **Arquitetura**: amplitude técnica, envolve decisões de alto nível combinando capacidades e restrições técnicas.  
+- **Design**: profundidade técnica, foca na implementação prática e detalhada do código.  
+
+---
+
+# Formação do Arquiteto Modelo T
+- **Base ampla e diversificada** (parte horizontal do T): conhecimento em várias tecnologias, plataformas e ambientes.  
+- **Profundidade em uma área específica** (parte vertical do T): especialização em um domínio técnico.  
+
+---
