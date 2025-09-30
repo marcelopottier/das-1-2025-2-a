@@ -166,3 +166,24 @@ Não é possível atender todos os requisitos ao mesmo tempo.
 - **Profundidade em uma área específica** (parte vertical do T): especialização em um domínio técnico.  
 
 ---
+
+## Segundo Bimestre
+
+# Circuit Breaker
+Padrão criado para resolver um problema muito comum em sistemas distribuídos.
+
+O objetivo é proteger a comunicação entre dois sistemas, utilizando a ideia de Estados para definir em qual momento a comunicação está.
+
+Estado - Closed/Fechado
+Quando está tudo bem entre a comunicação.
+
+Estado - Open/Aberto
+Quando ocorre alguma falha na comunicação.
+
+Estado - Half-Open/Meio aberto
+Quando ele tenta a comunicação novamente e consegue, neste momento podemos colocar um counter para certificar que a comunicação está realmente reestabelecida. 
+
+<img width="651" height="539" alt="image" src="https://github.com/user-attachments/assets/44f924bb-45f3-4c41-881c-81fac20dd495" />
+
+Além disso, a ideia é evitar códigos problematicos que ficam em looping tentando comunicações gastando recursos e "travando" o funcionamento até a comunicação ser reestabelecida.
+
