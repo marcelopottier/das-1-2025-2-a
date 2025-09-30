@@ -5,19 +5,18 @@ import com.azure.messaging.servicebus.ServiceBusClientBuilder;
 import com.azure.messaging.servicebus.ServiceBusProcessorClient;
 import com.azure.messaging.servicebus.models.ServiceBusReceiveMode;
 
-public class Subscriber {
+public class Consumer {
     public static void main(String[] args) {
-        var servidor = "sbdas12025a.servicebus.windows.net";
-        var topicName = "topic-das1-a";
+        var servidor = "sb-das1-2025.servicebus.windows.net";
+        String queue =  "queue-marcelopottier";
         String chave = System.getenv("CHAVE");
-        var subscription = "subscription-marcelopottier";
-        ServiceBusProcessorClient processorClient = new ServiceBusClientBuilder()
+
+         ServiceBusProcessorClient processorClient = new ServiceBusClientBuilder()
                 .fullyQualifiedNamespace(servidor)
                 .connectionString(chave)
                 .transportType(AmqpTransportType.AMQP_WEB_SOCKETS)
                 .processor()
-                .topicName(topicName)
-                .subscriptionName(subscription)
+                .queueName(queue)
                 .receiveMode(ServiceBusReceiveMode.PEEK_LOCK)
                 .processMessage(context -> {
                     System.out.println("MSG: " +
