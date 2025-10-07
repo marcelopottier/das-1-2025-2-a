@@ -214,13 +214,13 @@ Queries: acessam dados e retornam DTOs, mas nunca alteram nada.
 
 <img width="627" height="221" alt="image" src="https://github.com/user-attachments/assets/465cc857-d900-421c-877f-ade6de7da1e0" />
 
-3Alguns benefícios do CQRS.
+# Alguns benefícios do CQRS.
 
 1 - Esacalabilidade independente: Permite que os modelos de dados de escrita e leitura escalem de forma indepentente. Reduzindo a chance de lock das tabelas.
 2 - Segurança: Separando de forma clara entre modelos de escrita e leitura é possível garantir que apenas as entidades de domínio ou operações corretas tenham permissão para manipular dados no banco.
 3 - Separação de preocupação: Separar em uma arquitetura de leitura e escrita distintas permite que modelos mais limpos e manuteníveis sejam criados. O lado de escrita foca em lógica de negócio mais complexa, enquanto o lado de leitura foca na eficiência das queries.
 
-#Considerações
+# Considerações
 
 Alguns pontos de considerações existem ao tentar implantar o CQRS.
 
