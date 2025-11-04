@@ -187,3 +187,42 @@ Quando ele tenta a comunicação novamente e consegue, neste momento podemos col
 
 Além disso, a ideia é evitar códigos problematicos que ficam em looping tentando comunicações gastando recursos e "travando" o funcionamento até a comunicação ser reestabelecida.
 
+
+
+------------------------------------SEGUNDO BIMESTRE-----------------------------------------------------
+
+
+## Definições das características arquiteturais
+
+
+## CQRS Pattern
+
+Em uma aplicação com arquitetura tradicional, um único modelo de dados é utilizado para ler e escrever os dados. A medida que a aplicação cresce fica difícil otimizar as operações de leitura e escrita de dados em um único modelo de dados.
+Alguns problemas podem surgir com esta abordagem, como:
+
+1 - Lock de dados: Operações paralelas em uma mesma tabela podem gerar locks no banco.
+2 - Problemas de performance: A carga nas camadas acesso e armazenamento do banco somado com a complexidade das queries para obter informações acabam gerando problemas de performance.
+3 - Segurança: Pode ser difícil garantir segurança quando as entidades são expostas a leitura e escrita ao mesmo tempo. Essa abordagem pode expor dados em contextos não pensados.
+
+
+O CQRS surge para resolver esses problemas, a ideia é separar as operações de escrita e de leitura dos dados. Neste modelo seguimos os padrões de commands e queries.
+
+Commands: escrevem/alteram dados de fato.
+Queries: acessam dados e retornam DTOs, mas nunca alteram nada.
+
+(DTOs são Data Transfer Objects - utilizados para padronizar os dados em um formato específico e conhecido pelo serviço, que não necessita de lógica de domínio)
+
+<img width="627" height="221" alt="image" src="https://github.com/user-attachments/assets/465cc857-d900-421c-877f-ade6de7da1e0" />
+
+# Alguns benefícios do CQRS.
+
+1 - Esacalabilidade independente: Permite que os modelos de dados de escrita e leitura escalem de forma indepentente. Reduzindo a chance de lock das tabelas.
+2 - Segurança: Separando de forma clara entre modelos de escrita e leitura é possível garantir que apenas as entidades de domínio ou operações corretas tenham permissão para manipular dados no banco.
+3 - Separação de preocupação: Separar em uma arquitetura de leitura e escrita distintas permite que modelos mais limpos e manuteníveis sejam criados. O lado de escrita foca em lógica de negócio mais complexa, enquanto o lado de leitura foca na eficiência das queries.
+
+# Considerações
+
+Alguns pontos de considerações existem ao tentar implantar o CQRS.
+
+Aumento de complexidade - o conceito core do CQRS pode trazer aumento de complexidade significativa para o design da aplicação.
+Consistência - Quando os bancos de leitura e escrita são separados a parte de leitura de dados pode não mostrar as alterações mais recentes de forma imediata.
